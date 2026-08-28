@@ -17,7 +17,7 @@ export function Experience() {
             {experience.map((entry) => (
               <li key={entry.id}>
                 <span className="experience-index">01</span>
-                <div><h3>{entry.company}</h3><p>{entry.role}</p></div>
+                <div><h3>{entry.company}</h3><p>{entry.role}{entry.period ? ` · ${entry.period}` : ""}</p>{entry.description && <p className="experience-description">{entry.description}</p>}</div>
               </li>
             ))}
           </ul>

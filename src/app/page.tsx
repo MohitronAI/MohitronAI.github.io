@@ -5,6 +5,7 @@ import { Profile } from "@/components/profile/profile";
 import { Skills } from "@/components/skills/skills";
 import { Experience } from "@/components/experience/experience";
 import { Proof } from "@/components/proof/proof";
+import { Writing } from "@/components/writing/writing";
 import { Contact } from "@/components/contact/contact";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <Skills />
       <Experience />
       <Proof />
+      <Writing />
       <Contact />
     </main>
   );
