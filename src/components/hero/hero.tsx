@@ -1,4 +1,5 @@
 import { SystemVisual } from "./system-visual";
+import { contact } from "@/data/contact";
 
 export function Hero() {
   return (
@@ -11,7 +12,7 @@ export function Hero() {
           <p className="hero-description">I build practical software at the intersection of AI, full-stack engineering, and modern web technologies.</p>
           <div className="hero-actions">
             <a className="button button--primary" href="#work">View Selected Work <span aria-hidden="true">↗</span></a>
-            <a className="button button--secondary" href="mailto:mohitnagarkar2005@gmail.com">Get In Touch <span aria-hidden="true">↗</span></a>
+            <a className="button button--secondary" href={contact.emailHref} target="_blank" rel="noopener noreferrer">Get In Touch <span aria-hidden="true">↗</span></a>
           </div>
         </div>
         <SystemVisual />
