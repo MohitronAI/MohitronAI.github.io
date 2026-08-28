@@ -8,7 +8,7 @@ export function Contact() {
         <h2 id="contact-heading">Let&apos;s build something thoughtful<span>.</span></h2>
         <p className="contact-copy">{contact.closingCopy}</p>
         <a className="contact-email" href={contact.emailHref} target="_blank" rel="noopener noreferrer">{contact.email}<span aria-hidden="true">↗</span></a>
-      </div>
+      </div> 
       <div className="contact-links" aria-label="Contact links">
         <a href={contact.github} target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
         <a href={contact.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
