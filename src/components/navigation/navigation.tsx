@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { contact } from "@/data/contact";
 
 const links = [
   { label: "Work", href: "#work" },
@@ -76,7 +77,7 @@ export function Navigation() {
         </Link>
         <div className="desktop-links">
           {links.map((link) => <a href={link.href} key={link.href} aria-current={activeSection === link.href ? "location" : undefined}>{link.label}</a>)}
-          <a className="nav-cta" href="#contact">Let&apos;s Talk <span aria-hidden="true">↗</span></a>
+          <a className="nav-cta" href={contact.emailHref} target="_blank" rel="noopener noreferrer">Let&apos;s Talk <span aria-hidden="true">↗</span></a>
         </div>
         <button ref={menuToggleRef} className={`menu-toggle ${open ? "is-open" : ""}`} onClick={() => setOpen(!open)} aria-label={open ? "Close navigation menu" : "Open navigation menu"} aria-expanded={open} aria-controls="mobile-menu">
           <span>{open ? "Close" : "Menu"}</span><i aria-hidden="true" />
@@ -90,7 +91,7 @@ export function Navigation() {
                 <span>0{index + 1}</span>{link.label}
               </motion.a>
             ))}
-            <a className="mobile-cta" href="#contact" onClick={closeMenu}>Let&apos;s Talk <span aria-hidden="true">↗</span></a>
+            <a className="mobile-cta" href={contact.emailHref} target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Let&apos;s Talk <span aria-hidden="true">↗</span></a>
           </motion.nav>
         )}
       </AnimatePresence>
