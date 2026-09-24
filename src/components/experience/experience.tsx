@@ -5,8 +5,8 @@ import { experience, leadership } from "@/data/experience";
 
 export function Experience() {
   return (
-    <section id="experience" className="experience-section site-container" aria-labelledby="experience-heading">
-      <motion.div className="experience-intro" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.5 }}>
+    <section className="experience-section site-container" aria-labelledby="experience-heading">
+      <motion.div id="experience" className="experience-intro anchor-target" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.5 }}>
         <p className="section-label">EXPERIENCE</p>
         <h2 id="experience-heading">Where I&apos;ve put the work into practice<span>.</span></h2>
       </motion.div>

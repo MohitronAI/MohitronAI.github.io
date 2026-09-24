@@ -5,8 +5,8 @@ import { profile } from "@/data/profile";
 
 export function Profile() {
   return (
-    <section id="about" className="profile-section site-container" aria-labelledby="profile-heading">
-      <motion.div className="profile-heading" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.55 }}>
+    <section className="profile-section site-container" aria-labelledby="profile-heading">
+      <motion.div id="about" className="profile-heading anchor-target" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.55 }}>
         <p className="section-label">DEVELOPER PROFILE</p>
         <h2 id="profile-heading">{profile.headline}</h2>
         <p className="profile-introduction">{profile.introduction}</p>

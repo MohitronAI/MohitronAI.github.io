@@ -5,9 +5,9 @@ import { skillCategories } from "@/data/skills";
 
 export function Skills() {
   return (
-    <section id="skills" className="skills-section site-container" aria-labelledby="skills-heading">
-      <motion.div className="skills-intro" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.5 }}>
-        <p className="section-label"><span>04</span> ENGINEERING STACK</p>
+    <section className="skills-section site-container" aria-labelledby="skills-heading">
+      <motion.div id="skills" className="skills-intro anchor-target" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.5 }}>
+        <p className="section-label">ENGINEERING STACK</p>
         <h2 id="skills-heading">Technologies behind the work<span>.</span></h2>
       </motion.div>
       <div className="skill-list">

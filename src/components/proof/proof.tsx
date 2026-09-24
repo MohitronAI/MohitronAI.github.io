@@ -7,7 +7,7 @@ export function Proof() {
   return (
     <section id="proof" className="proof-section site-container" aria-labelledby="proof-heading">
       <motion.div className="proof-intro" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.5 }}>
-        <p className="section-label"><span>06</span> PROOF OF WORK</p>
+        <p className="section-label">PROOF OF WORK</p>
         <h2 id="proof-heading">A few signals from the work<span>.</span></h2>
       </motion.div>
       <div className="proof-grid">

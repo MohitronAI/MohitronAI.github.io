@@ -2,8 +2,8 @@ import { contact } from "@/data/contact";
 
 export function Contact() {
   return (
-    <section id="contact" className="contact-section site-container" aria-labelledby="contact-heading">
-      <div className="contact-main">
+    <section className="contact-section site-container" aria-labelledby="contact-heading">
+      <div id="contact" className="contact-main anchor-target">
         <p className="section-label">CONTACT</p>
         <h2 id="contact-heading">Let&apos;s build something thoughtful<span>.</span></h2>
         <p className="contact-copy">{contact.closingCopy}</p>

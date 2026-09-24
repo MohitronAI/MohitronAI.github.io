@@ -37,10 +37,10 @@ export function Projects() {
   }, [navigate]);
 
   return (
-    <section id="work" className="projects-section site-container" aria-labelledby="work-heading">
-      <div className="projects-intro">
+    <section className="projects-section site-container" aria-labelledby="work-heading">
+      <div id="work" className="projects-intro anchor-target">
         <div>
-          <p className="section-label"><span>01</span> SELECTED WORK</p>
+          <p className="section-label">SELECTED WORK</p>
           <h2 id="work-heading">Things I&apos;ve built<span>.</span></h2>
         </div>
         <p className="section-note">A collection of products, experiments, and systems.</p>
