@@ -1,23 +1,32 @@
+import { profile } from "@/data/profile";
 import { SystemVisual } from "./system-visual";
-import { contact } from "@/data/contact";
 
 export function Hero() {
   return (
-    <section className="hero">
-      <div className="hero-grid" aria-hidden="true" />
-      <div className="hero-inner site-container">
-        <div className="hero-copy">
-          <p className="eyebrow"><span className="eyebrow-line" />SOFTWARE &amp; AI DEVELOPER · FULL-STACK BUILDER</p>
-          <h1>Building <em>intelligent</em> products and modern digital experiences.</h1>
-          <p className="hero-description">I build practical software at the intersection of AI, full-stack engineering, and modern web technologies.</p>
+    <section id="home" className="hero site-container" aria-labelledby="hero-heading">
+      <div className="hero-main">
+        <p className="eyebrow"><span className="eyebrow-index">01 /</span> SOFTWARE · SYSTEMS · AI</p>
+        <h1 id="hero-heading"><span>MOHIT</span><span className="hero-name-last">NAGARKAR<span className="accent-period">.</span></span></h1>
+        <div className="hero-summary">
+          <h2>{profile.headline}</h2>
+          <p>{profile.introduction}</p>
           <div className="hero-actions">
-            <a className="button button--primary" href="#work">View Selected Work <span aria-hidden="true">↗</span></a>
-            <a className="button button--secondary" href={contact.emailHref} target="_blank" rel="noopener noreferrer">Get In Touch <span aria-hidden="true">↗</span></a>
+            <a className="button button--lime" href="#projects">Explore the work <span aria-hidden="true">↘</span></a>
+            <a className="button button--outline" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
           </div>
         </div>
-        <SystemVisual />
       </div>
-      <div className="hero-footer"><span>SCROLL TO EXPLORE</span><span className="scroll-line" /><span>© 2026 / MOHIT</span></div>
+      <div className="hero-visual-wrap">
+        <SystemVisual />
+        <div className="hero-caption">
+          <span>{profile.education} · Graduating {profile.graduation}</span>
+          <span>{profile.location}</span>
+        </div>
+      </div>
+      <div className="hero-footer">
+        <span>INDEPENDENT THINKING / PRACTICAL BUILDING</span>
+        <span>SCROLL TO EXPLORE <b aria-hidden="true">↓</b></span>
+      </div>
     </section>
   );
 }

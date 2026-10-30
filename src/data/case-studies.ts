@@ -35,6 +35,7 @@ export type CaseStudy = {
   summary: string;
   category: string;
   status: string;
+  limitationsHeading?: string;
   liveUrl?: string;
   githubUrl?: string;
   seoTitle?: string;
@@ -50,13 +51,15 @@ export const caseStudies: readonly CaseStudy[] = [
     title: "DAgreement",
     eyebrow: "FULL-STACK / AGREEMENT WORKFLOW",
     summary:
-      "A full-stack digital agreement workflow for creating agreements, collecting consent, generating PDFs, storing records, and tracking agreement activity.",
+      "A digital agreement prototype with frontend and backend source for create, send, sign, reject, and PDF workflows. End-to-end operation has not been independently tested.",
     category: "Full-Stack Web Application",
-    status: "FRONTEND DEPLOYED / BACKEND REQUIRES CORRECTION",
+    status: "PROTOTYPE / API SOURCE PRESENT / E2E UNVERIFIED",
+    limitationsHeading: "Known limitations",
     liveUrl: "https://d-aagreement.vercel.app/",
+    githubUrl: "https://github.com/MohitronAI/DAgreement",
     seoTitle: "DAgreement — Digital Consent & Agreement Tracker | Mohit Nagarkar",
     seoDescription:
-      "A full-stack digital agreement platform for creating, sending, signing, storing, and tracking agreements with generated signed PDFs and audit metadata.",
+      "A digital agreement prototype with API workflow source; end-to-end operation is not verified.",
     technologies: [
       "React",
       "TypeScript",
@@ -67,7 +70,6 @@ export const caseStudies: readonly CaseStudy[] = [
       "bcrypt",
       "Google OAuth",
       "PDFKit",
-      "Brevo",
     ],
     sections: [
       {
@@ -76,7 +78,7 @@ export const caseStudies: readonly CaseStudy[] = [
         label: "01 / OVERVIEW",
         title: "A digital consent and agreement management platform.",
         paragraphs: [
-          "DAgreement is an individual startup-style prototype built between January 22–25, 2026. It primarily supports one authenticated creator and one recipient per agreement.",
+          "The linked repository contains a React/TypeScript client and Node.js/Express API source, including handlers for agreement creation, sending, signing, rejection, PDF generation, and email delivery. Source presence does not establish a successful production workflow. The repository history includes commits attributed to Mohit Nagarkar, but it does not define the full individual scope of that work.",
         ],
       },
       {
@@ -85,7 +87,7 @@ export const caseStudies: readonly CaseStudy[] = [
         label: "02 / THE PROBLEM",
         title: "Make agreement work easier to follow through.",
         paragraphs: [
-          "Paper and email-based agreements can be slower to prepare, harder to track, and easy to fragment across inboxes and files. DAgreement brings creation, sending, signing, document generation, storage, and notifications into one workflow.",
+          "The application source connects agreement creation and review with API routes for send, sign, and reject actions. The hosted service and complete user journey have not been independently exercised.",
         ],
       },
       {
@@ -94,7 +96,7 @@ export const caseStudies: readonly CaseStudy[] = [
         label: "03 / HOW IT WORKS",
         title: "From a draft to a traceable agreement.",
         paragraphs: [
-          "The workflow moves from a structured draft to a public signing link, then to a signed or rejected outcome with a generated PDF, audit entry, stored metadata, and notifications.",
+          "The repository implements client pages and API handlers for a draft-to-signature flow. No automated test suite or successful end-to-end run is included, so these remain source-supported features rather than verified live behavior.",
         ],
         bullets: [
           "Agreement creation and recipient invitation",
@@ -113,14 +115,14 @@ export const caseStudies: readonly CaseStudy[] = [
         label: "04 / SYSTEM ARCHITECTURE",
         title: "A small, explicit full-stack boundary.",
         paragraphs: [
-          "The React frontend communicates with an Express REST API through authentication middleware and controllers. Services handle PDF generation and Brevo email delivery, while PostgreSQL stores application data.",
+          "The repository includes a React/TypeScript frontend, Express API, PostgreSQL configuration, PDFKit service, and email-service code. Their complete production integration was not tested in this review.",
         ],
         bullets: [
           "React + TypeScript client",
           "Node.js + Express API",
           "PostgreSQL persistence",
           "PDFKit document generation",
-          "Brevo transactional email delivery",
+          "Email delivery integration listed in the project notes",
         ],
         visual: "architecture",
         visualTitle: "Client, API, persistence, and delivery boundaries",
@@ -133,7 +135,7 @@ export const caseStudies: readonly CaseStudy[] = [
         label: "05 / SECURITY",
         title: "Security is part of the agreement record.",
         paragraphs: [
-          "The verified implementation combines authenticated creator access with traceability. JWT, bcrypt, Google OAuth, ownership checks, IP capture, timestamps, and audit events support the current prototype scope.",
+          "Source includes JWT authentication, bcrypt, Google sign-in integration, signing metadata, and audit-related handlers. Security properties and end-to-end behavior have not been independently audited or tested here.",
         ],
         bullets: [
           "JWT authentication",
@@ -154,13 +156,13 @@ export const caseStudies: readonly CaseStudy[] = [
         label: "06 / DATA MODEL",
         title: "Records that keep the history connected.",
         paragraphs: [
-          "The data model centers on users and agreements, with related signatures, audit logs, and notifications connected to the agreement lifecycle.",
+          "The backend source includes database initialization and API handlers for user agreements, signatures, notifications, and document retrieval. Database behavior was not exercised against a configured service.",
         ],
         bullets: [
           "User → creates and accesses agreements",
           "Agreement → belongs to one creator and can have signatures and audit logs",
           "User → receives notifications",
-          "Agreement-related records → are deleted with the agreement",
+          "Agreement-related records → relationship described in the project notes",
         ],
         visual: "data-model",
         visualTitle: "Core DAgreement records and relationships",
@@ -173,31 +175,31 @@ export const caseStudies: readonly CaseStudy[] = [
         label: "07 / ENGINEERING",
         title: "Connect every boundary in the lifecycle.",
         paragraphs: [
-          "The hardest part was connecting the frontend, backend, database, email delivery, PDF generation, and deployment infrastructure into one agreement lifecycle.",
-          "The implementation uses React, Express, PostgreSQL, JWT, bcrypt, Google OAuth, PDFKit, and Brevo at their respective system boundaries.",
+          "The project notes identify the frontend, backend, database, email delivery, PDF generation, and deployment boundaries as part of the intended agreement lifecycle.",
+          "The linked repository history includes commits attributed to Mohit Nagarkar, including the initial project commit and later changes. That history documents repository activity, not a complete feature-by-feature attribution.",
         ],
       },
       {
         id: "deployment",
         layout: "text-only",
         label: "08 / DEPLOYMENT",
-        title: "The frontend is deployed; the workflow still needs its backend.",
+        title: "A frontend link is listed; the workflow still needs its backend.",
         paragraphs: [
-          "The frontend is deployed on Vercel. The expected Node/Express backend is hosted at Render, but the verified deployment currently returns 404 for /, /api, and /health, so the complete workflow cannot yet be verified end-to-end.",
+          "The frontend URL returned the DAgreement application shell. The backend health URL documented in the repository returned HTTP 404 during this review; this does not confirm that the end-to-end workflow is operational.",
         ],
       },
       {
         id: "result",
         layout: "text-only",
         label: "09 / RESULT",
-        title: "A complete workflow architecture, honestly scoped.",
+        title: "A prototype scope with backend work remaining.",
         paragraphs: [
-          "The primary outcome is the connected path from create to send, sign or reject, generate PDF, store metadata, record audit activity, and notify participants.",
+          "The source defines a full-stack agreement workflow and supporting handlers. The public frontend is reachable, but the backend health check returned 404 and no signing workflow was verified.",
         ],
       },
     ],
     limitations: [
-      "The backend deployment currently returns 404 and requires correction before the complete workflow can be verified end-to-end.",
+      "The repository contains backend workflow code, but the documented backend health URL returned 404 and the full create-to-sign flow has not been independently verified.",
       "Full RBAC, rate limiting, refresh tokens, token revocation, recipient identity verification, secure signing tokens, and centralized error handling are not implemented.",
       "Signed PDFs are generated, stored separately, and accompanied by audit metadata; cryptographic signing, PDF locking, tamper-evident storage, version history, and hash verification are not implemented.",
       "PDF access requires additional protection, and automated testing and transactional safeguards can be expanded.",
@@ -206,157 +208,102 @@ export const caseStudies: readonly CaseStudy[] = [
   {
     slug: "green-model-advisor",
     title: "Green Model Advisor",
-    eyebrow: "AI / SUSTAINABILITY / MODEL ORCHESTRATION",
+    eyebrow: "AI / SUSTAINABILITY / MODEL SELECTION",
     summary:
-      "A conceptual LLM orchestration platform that makes model choice visible through prompt-aware routing, real-time CO₂ tracking, energy benchmarking, and explicit trade-offs.",
+      "A linked Python/FastAPI and React/Vite codebase for prompt-based model selection and carbon-estimate workflows. Runtime behavior and measurement accuracy have not been independently validated.",
     category: "AI / Sustainability",
-    status: "CONCEPTUAL CASE STUDY / SCOPE DEFINED",
-    seoTitle: "Green Model Advisor — Low-Carbon AI Optimization Platform | Mohit Nagarkar",
+    status: "SOURCE AVAILABLE / RUNTIME AND CONTRIBUTION DETAILS TO CONFIRM",
+    limitationsHeading: "Evidence limits",
+    githubUrl: "https://github.com/cokefloat07/final-techM-EDAI",
+    seoTitle: "Green Model Advisor — AI Model Selection & Carbon Estimation | Mohit Nagarkar",
     seoDescription:
-      "A full-stack AI orchestration platform exploring prompt-complexity model routing, energy benchmarking, and carbon-aware inference.",
+      "Repository-based review of Green Model Advisor: prompt-feature routing, model API paths, CodeCarbon/fallback estimates, and limits of available evidence.",
     technologies: [
-      "React",
+      "Python",
       "FastAPI",
-      "LLMs",
-      "AI Model Orchestration",
-      "Real-Time CO₂ Tracking",
-      "Energy Benchmarking",
+      "SQLAlchemy",
+      "SQLite",
+      "React",
+      "Vite",
+      "CodeCarbon",
+      "Google Generative AI",
+      "OpenRouter API",
+      "NVIDIA NIM API",
     ],
     sections: [
       {
         id: "overview",
         layout: "text-only",
-        label: "01 / OVERVIEW",
-        title: "Make every model decision easier to see.",
+        label: "01 / REPOSITORY SCOPE",
+        title: "A source-backed prototype for model selection and estimates.",
         paragraphs: [
-          "Green Model Advisor is a sustainability-focused interface for reasoning about LLM use. It brings routing, carbon visibility, and energy benchmarking into one conceptual product surface without presenting an unverified deployment as production.",
-          "The product treats efficiency as a decision context: the best response is not only about capability, but also about the task requirements and the environmental signal available at the time.",
+          "The linked repository README identifies the project as Green Model Advisor. Its source contains a FastAPI service and React client for model selection, inference/estimation, comparison, conversation history, and dashboard views.",
+          "The repository history uses a generic Developer author identity and does not establish Mohit Nagarkar's individual contribution. Confirm the personal role before using first-person or ownership claims.",
         ],
       },
       {
-        id: "problem",
-        layout: "text-only",
-        label: "02 / THE PROBLEM",
-        title: "Model choice is usually disconnected from its footprint.",
-        paragraphs: [
-          "Teams can choose an LLM for quality while having little visibility into the energy and carbon context of each request. A static default also makes it difficult to explain why a more capable model was used for a task that did not need it.",
-          "Green Model Advisor frames that gap as an orchestration problem: understand the request, select an appropriate route, observe the result, and keep the decision reviewable.",
-        ],
-        bullets: [
-          "Make routing criteria understandable to the person reviewing a request",
-          "Keep quality, latency, cost, energy, and carbon as visible trade-offs",
-          "Record enough context to compare decisions over time",
-        ],
-      },
-      {
-        id: "orchestration",
+        id: "routing",
         layout: "text-visual",
-        label: "03 / MODEL ORCHESTRATION",
-        title: "Route each request by what it actually needs.",
+        label: "02 / MODEL SELECTION",
+        title: "Route from prompt signals using explicit Python logic.",
         paragraphs: [
-          "The orchestration layer receives a request, extracts task signals, and compares them with the capabilities and efficiency profile of available models. It then chooses a route, sends the request, and returns the response with a decision trace.",
-          "This is a conceptual control loop rather than a claim about a particular provider or model lineup. The interface can show why a route was selected without exposing a formula or inventing a model name.",
+          "The model selector analyzes prompt length, complexity, domain, task type, technical level, creativity, and precision indicators, then scores configured candidate models and returns a rationale.",
+          "The API includes both a simulation path and provider API integrations. The repository contains code for these flows; no independent successful live-provider run is documented here.",
         ],
         bullets: [
-          "Prompt signal extraction at the API boundary",
-          "Capability and efficiency profile comparison",
-          "Policy-aware route selection",
-          "Response and routing rationale returned together",
+          "Prompt-feature analysis and candidate filtering",
+          "Configured model scoring and selection rationale",
+          "Estimate, model comparison, recommendation, and conversation endpoints",
         ],
         visual: "model-orchestration",
-        visualTitle: "Request signals to an explainable model route",
+        visualTitle: "Prompt analysis to a selected model route",
         visualDescription:
-          "A conceptual flow shows a request entering signal extraction, being compared with model profiles, passing through a routing policy, and returning a response with its decision trace.",
+          "A source-backed flow shows the request entering prompt analysis, model filtering and scoring, then a selected route and rationale.",
       },
       {
-        id: "carbon-energy",
+        id: "measurement",
         layout: "text-visual",
-        label: "04 / CARBON + ENERGY",
-        title: "Turn inference activity into a live sustainability signal.",
+        label: "03 / CARBON ESTIMATION",
+        title: "Keep measured process data distinct from fallback estimates.",
         paragraphs: [
-          "The tracking pipeline associates each completed request with observable inference and energy signals, then translates those signals into a carbon context for the dashboard. The pipeline is designed to show where a value came from and when it was captured.",
-          "Carbon intensity is treated as contextual data, not a universal constant. The conceptual design keeps source, time, scope, and uncertainty visible so the result can be interpreted responsibly.",
+          "The FastAPI estimator attempts CodeCarbon process tracking when available and has a fallback estimation path. The code records energy and carbon fields alongside token and inference metadata.",
+          "These values are not independently benchmarked in this review. A CodeCarbon process measurement or model-based fallback should not be presented as validated per-request provider energy or as a proven reduction.",
         ],
         bullets: [
-          "Capture request and route metadata",
-          "Collect inference energy observations",
-          "Join the observation with carbon-intensity context",
-          "Present the resulting signal with provenance and uncertainty",
+          "CodeCarbon tracking is optional in the source environment",
+          "Fallback estimation is available when CodeCarbon cannot be loaded",
+          "No verified emissions-reduction result or benchmark is published in this repository",
         ],
         visual: "carbon-energy",
-        visualTitle: "Inference observation to carbon-aware context",
+        visualTitle: "Inference path and estimate method",
         visualDescription:
-          "A conceptual pipeline connects request metadata and energy observations to carbon-intensity context, then produces a traceable dashboard signal.",
+          "A flow distinguishes the model execution path from optional CodeCarbon tracking and fallback estimation before values are stored and displayed.",
       },
       {
-        id: "benchmarking",
-        layout: "text-visual",
-        label: "05 / BENCHMARKING",
-        title: "Compare routes without hiding the criteria.",
-        paragraphs: [
-          "The benchmarking view compares model routes across the dimensions that matter for a task: response quality, latency, cost, energy, and carbon. It is intended to support a deliberate choice, not to reduce a complex system to one universal score.",
-          "A benchmark record should carry its task context, evaluation method, and capture conditions. That makes comparisons useful while avoiding unsupported claims about absolute performance.",
-        ],
-        bullets: [
-          "Side-by-side route comparison",
-          "Task context attached to each observation",
-          "Quality and efficiency shown together",
-          "Transparent benchmark scope and capture conditions",
-        ],
-        visual: "benchmarking",
-        visualTitle: "A multi-axis view for responsible comparison",
-        visualDescription:
-          "A conceptual dashboard compares quality, latency, cost, energy, and carbon as separate axes so a reviewer can inspect the trade-off instead of relying on one score.",
-      },
-      {
-        id: "architecture",
+        id: "stack",
         layout: "full-visual",
-        label: "06 / SYSTEM ARCHITECTURE",
-        title: "Keep the product boundary clear and inspectable.",
+        label: "04 / IMPLEMENTATION",
+        title: "A Python API and React client are present in the repository.",
         paragraphs: [
-          "The presented architecture pairs a React interface with a FastAPI boundary. The API coordinates orchestration, tracking, and benchmark records while keeping the conceptual model catalog and measurement adapters behind explicit interfaces.",
-          "This diagram communicates a system shape, not a claim about cloud hosting, deployment, or a production database. Those concerns can be selected later without changing the product’s reasoning model.",
+          "The backend source uses FastAPI, SQLAlchemy, and SQLite configuration. The client package manifest uses React and Vite. The repository also includes deployment configuration for Render and Vercel, which is not proof that a current deployment is healthy.",
         ],
         bullets: [
-          "React dashboard and review surfaces",
-          "FastAPI orchestration and measurement boundary",
-          "LLM routing policy and model adapters",
-          "Carbon and energy observation adapters",
-          "Benchmark records for comparison and review",
+          "FastAPI routes for estimate, compare, model listing, recommendations, and health",
+          "SQLAlchemy persistence for estimate and conversation records",
+          "React client with authentication, chat, and dashboard views",
+          "Provider integrations configured through environment variables",
         ],
         visual: "green-architecture",
-        visualTitle: "React and FastAPI around observable decision boundaries",
+        visualTitle: "FastAPI service, persistence, and React client",
         visualDescription:
-          "A conceptual system map places the React interface and FastAPI boundary around routing, measurement, and benchmarking components, with no deployment or database claim.",
-      },
-      {
-        id: "trade-offs",
-        layout: "text-visual",
-        label: "07 / TRADE-OFFS",
-        title: "Efficiency is a choice with consequences.",
-        paragraphs: [
-          "A lower-footprint route can be a better fit for a straightforward task, while a complex request may justify a different capability profile. The product makes that decision legible instead of pretending that one route wins every time.",
-          "The trade-off surface is deliberately qualitative in this case study. It supports review, policy setting, and iteration without presenting fabricated formulas, model names, or benchmark numbers.",
-        ],
-        bullets: [
-          "Capability versus energy demand",
-          "Quality versus latency and cost",
-          "Fresh carbon context versus decision stability",
-          "Automation versus human review",
-          "Efficiency improvements reported up to 25% where observed",
-        ],
-        visual: "trade-offs",
-        visualTitle: "Review the decision, not just the outcome",
-        visualDescription:
-          "A conceptual trade-off map places capability, quality, latency, cost, energy, and carbon around a review point so no single dimension is treated as the answer.",
+          "The diagram summarizes the repository's source-level client, API, persistence, and model/estimate boundaries.",
       },
     ],
     limitations: [
-      "This is a conceptual case study; no live URL or GitHub reference is provided.",
-      "The diagrams describe intended boundaries and measurement flows, not a claim of deployment, cloud hosting, or database infrastructure.",
-      "Carbon and energy observations depend on measurement scope, source quality, workload context, and uncertainty; the case study does not provide formulas or absolute benchmark values.",
-      "The reported reduction is limited to up to 25% in per-task carbon output and inference energy consumption; it is not a universal guarantee.",
-      "Specific model names, provider claims, and production performance metrics are intentionally omitted.",
+      "No verified live demo URL or successful deployment check was found in the repository documentation.",
+      "Test scripts are present, but no recorded passing test results were found; they were not executed as part of this portfolio review.",
+      "Model provider availability, inference quality, estimation accuracy, and production operation are not independently verified.",
+      "Recent commit history lists a generic Developer author, so the portfolio owner's exact contribution needs confirmation.",
     ],
   },
   {
@@ -364,22 +311,19 @@ export const caseStudies: readonly CaseStudy[] = [
     title: "NeuralixAI",
     eyebrow: "AI / EDTECH / LEARNING SYSTEM",
     summary:
-      "An AI-driven career and learning platform that turns a learner’s current skills and goals into an actionable path, with an AI mentor for the next decision.",
+      "The portfolio notes describe a career and learning product with personalized paths and skill tracking. Its implementation status is not verified in this repository.",
     category: "AI / EdTech",
-    status: "BETA / ENGINEERING CASE STUDY",
-    githubUrl: "https://github.com/hdp01/NeuralixAi",
+    status: "CASE STUDY / IMPLEMENTATION STATUS UNVERIFIED",
+    limitationsHeading: "Scope and details to confirm",
     seoTitle: "NeuralixAI — AI-Driven Learning Platform | Mohit Nagarkar",
     seoDescription:
-      "An AI-powered career and learning platform that generates personalized LLM-based learning paths.",
+      "A career and learning platform described in the portfolio notes as offering personalized paths and skill tracking. Its implementation is not independently verified here.",
     technologies: [
       "FastAPI",
       "React",
       "JavaScript (ES6+)",
       "REST APIs",
       "LLMs",
-      "Hybrid RAG",
-      "Vector Search",
-      "Vertex AI Gemini",
     ],
     sections: [
       {
@@ -388,13 +332,13 @@ export const caseStudies: readonly CaseStudy[] = [
         label: "01 / OVERVIEW",
         title: "A learning system that starts with the learner.",
         paragraphs: [
-          "NeuralixAI is a career and learning platform for turning a learner’s skills, target role, and constraints into a practical sequence of next steps. The product combines structured skill tracking with LLM-assisted guidance rather than treating a generated answer as the product.",
-          "The India-first knowledge base keeps examples, role expectations, and learning context relevant to learners navigating Indian education and early-career pathways.",
+          "The portfolio notes describe a career and learning product intended to connect learner skills and goals with suggested learning paths and skill tracking. This repository does not contain the product implementation or a verified source link.",
+          "The same notes mention an India-first knowledge base. Its contents and use in a running product are not independently verified here.",
         ],
         visual: "neural-blueprint",
         visualTitle: "Neural Blueprint: learner context to next action",
         visualDescription:
-          "A technical blueprint connects learner profile and target role inputs to a skill graph, grounded knowledge retrieval, an AI mentor, and an actionable learning path.",
+          "A conceptual blueprint connects learner profile and target-role inputs to skill tracking, knowledge retrieval, an AI mentor, and a learning path.",
       },
       {
         id: "problem",
@@ -412,11 +356,11 @@ export const caseStudies: readonly CaseStudy[] = [
         label: "03 / WORKFLOW",
         title: "From assessment to a plan a learner can explain.",
         paragraphs: [
-          "A learner supplies a profile, goals, and assessment signals. The system maps those signals to tracked domains, retrieves relevant knowledge, and produces a prioritized path. The learner can inspect recommendations, ask the mentor for context, and run a what-if scenario before committing.",
+          "The proposed flow starts with a learner profile, goals, and assessment signals, then uses them to shape a learning path. This is the workflow described in the portfolio notes, not a verified interaction sequence.",
         ],
         bullets: [
           "Profile and target-role intake",
-          "Assessments across 4–7 skill domains",
+          "Assessments inform tracked skills",
           "Parser turns answers and signals into structured skills",
           "Recommendations with rationale and sequencing",
           "AI mentor and what-if exploration",
@@ -424,7 +368,7 @@ export const caseStudies: readonly CaseStudy[] = [
         visual: "neural-workflow",
         visualTitle: "NeuralixAI learner workflow",
         visualDescription:
-          "A six-stage flow moves from learner context and assessments through parsing, retrieval, recommendations, and an AI mentor feedback loop.",
+          "A conceptual flow moves from learner context and assessments through parsing, retrieval, recommendations, and an AI mentor feedback loop.",
       },
       {
         id: "blueprint",
@@ -456,7 +400,7 @@ export const caseStudies: readonly CaseStudy[] = [
         label: "06 / PARSER",
         title: "Turn messy input into useful structure.",
         paragraphs: [
-          "The Smart Resume & Marksheet Parser uses Google Document AI as the document-processing boundary. A resume or marksheet is converted into extracted information that can contribute to the learner profile alongside assessment data.",
+          "The portfolio material names Google Document AI for a proposed resume and marksheet parser. The repository does not verify the service integration or parsed output.",
           "Extracted information is an input to personalization, not a credential: recommendations should remain revisable and should show the learner what was interpreted.",
         ],
       },
@@ -466,7 +410,7 @@ export const caseStudies: readonly CaseStudy[] = [
         label: "07 / RECOMMENDATIONS",
         title: "Prioritize the next smallest useful move.",
         paragraphs: [
-          "Recommendations combine the learner’s current state, target-role requirements, and retrieved learning material. A useful result is sequenced, scoped, and accompanied by a reason—what to learn, why it matters, and what evidence would demonstrate progress.",
+          "The product description proposes recommendations based on learner context, target-role requirements, and learning material. A useful result would be sequenced, scoped, and accompanied by a reason.",
         ],
         bullets: [
           "Personalized LLM-based learning paths",
@@ -480,7 +424,7 @@ export const caseStudies: readonly CaseStudy[] = [
         label: "08 / SKILL GAP",
         title: "Show the distance between now and next.",
         paragraphs: [
-          "Skill-gap analysis compares tracked capability with a target role’s expected competencies. The output is directional rather than a hiring verdict: it highlights focus areas, dependencies, and a way to measure progress.",
+          "The project material describes a skill-gap view comparing tracked capability with target-role competencies. Its behavior and outputs are not demonstrated in this repository.",
         ],
         visual: "skill-gap",
         visualTitle: "Skill-gap view: evidence, target, next action",
@@ -493,7 +437,7 @@ export const caseStudies: readonly CaseStudy[] = [
         label: "09 / AI MENTOR",
         title: "A conversational layer over the plan.",
         paragraphs: [
-          "The AI mentor gives the learner a place to ask follow-up questions about a recommendation, trade-offs, and sequencing. It should ground answers in the same retrieved context as the path and make uncertainty visible rather than presenting speculation as fact.",
+          "The AI mentor is described as a proposed way for learners to ask follow-up questions about recommendations, trade-offs, and sequencing. Its grounding and response behavior need implementation evidence.",
         ],
       },
       {
@@ -502,7 +446,7 @@ export const caseStudies: readonly CaseStudy[] = [
         label: "10 / WHAT-IF",
         title: "Explore a different constraint before switching paths.",
         paragraphs: [
-          "What-if scenarios let a learner test changes such as a different target role, fewer weekly hours, or a new prerequisite. The system can recompute priorities and show which parts of the plan move; it does not predict a guaranteed career outcome.",
+          "The portfolio material describes what-if scenarios for exploring constraints such as a target role or prerequisite. The behavior and resulting plans are not verified here.",
         ],
       },
       {
@@ -511,7 +455,7 @@ export const caseStudies: readonly CaseStudy[] = [
         label: "11 / ROADMAP",
         title: "Earn trust one learning loop at a time.",
         paragraphs: [
-          "The project material describes a personalized learning roadmap, including a 12-week roadmap concept. The next practical milestones are to evaluate recommendations with real learner outcomes, curate and version the India-first knowledge base, make retrieved sources visible, and measure parser and skill-gap corrections.",
+          "The project material describes a structured learning-roadmap concept. Further evaluation, knowledge-base curation, source visibility, and parser and skill-gap checks are areas to document.",
         ],
         bullets: [
           "Evaluate recommendation quality and learner follow-through",
@@ -526,8 +470,8 @@ export const caseStudies: readonly CaseStudy[] = [
         label: "12 / AI + KNOWLEDGE",
         title: "Ground generation in a living knowledge base.",
         paragraphs: [
-          "The presented AI layer uses hybrid RAG: lexical and vector retrieval select relevant passages, then Vertex AI Gemini can synthesize a response or path from that context. Vector Search supports semantic matching; retrieval and prompt boundaries remain explicit so generated guidance is inspectable.",
-          "The knowledge base is India-first, with local role language and learning context treated as product data that needs curation, versioning, and evaluation.",
+          "A proposed AI design in the project material names hybrid retrieval, Vector Search, and Vertex AI Gemini. This repository does not verify that these services are configured or used by a running system.",
+          "The notes also describe an India-first knowledge base; its data sources, curation, and operation are not documented here.",
         ],
         visual: "ai-rag",
         visualTitle: "Hybrid retrieval to grounded Gemini guidance",
@@ -538,23 +482,23 @@ export const caseStudies: readonly CaseStudy[] = [
         id: "architecture",
         layout: "full-visual",
         label: "13 / SYSTEM ARCHITECTURE",
-        title: "Separate the verified core from the presented cloud path.",
+        title: "Separate listed components from a proposed cloud path.",
         paragraphs: [
-          "The verified implementation is a FastAPI REST backend paired with a React client and LLM-powered learning-path behavior. The cloud architecture presented for scale adds managed retrieval, a vector index, and Vertex AI Gemini around those boundaries.",
-          "This distinction matters: the diagram communicates an intended deployment shape, not a claim that every Google Cloud service or production control is currently live.",
+          "The current portfolio notes describe a FastAPI REST backend paired with a React client and LLM-powered learning paths. A separate cloud architecture is presented as a design direction, not verified deployment evidence.",
+          "The diagram communicates an intended design. It is not evidence that the listed services or production controls are live.",
         ],
         visual: "neural-architecture",
-        visualTitle: "Presented cloud architecture vs verified implementation",
+        visualTitle: "Project notes and a presented cloud architecture",
         visualDescription:
-          "The diagram separates the verified React and FastAPI core from a presented cloud path containing an API boundary, hybrid retrieval, Vector Search, an India-first knowledge base, and Vertex AI Gemini.",
+          "The diagram shows the React and FastAPI components listed in the portfolio notes alongside a proposed cloud path containing retrieval, a vector index, a knowledge base, and a language model.",
       },
       {
         id: "features",
         layout: "text-only",
         label: "14 / FEATURES",
-        title: "A focused surface for learning decisions.",
+        title: "A feature list for learning decisions.",
         paragraphs: [
-          "The feature set keeps the loop visible: profile and assessments establish context, recommendations turn it into action, and mentor and what-if tools help the learner understand and adapt the path.",
+          "The feature list in the portfolio notes includes profile, assessments, recommendations, mentor, and what-if concepts. Their implementation status is not verified here.",
         ],
         bullets: [
           "Smart Resume & Marksheet Parser",
@@ -568,18 +512,9 @@ export const caseStudies: readonly CaseStudy[] = [
         ],
       },
       {
-        id: "metrics",
-        layout: "text-only",
-        label: "15 / OBSERVED SIGNALS",
-        title: "Early usage, stated without overclaiming.",
-        paragraphs: [
-          "The beta served 12 users. Observed recommendation responses were under 800 ms in the reported beta context; this is an observed signal, not a universal latency guarantee or a production SLA.",
-        ],
-      },
-      {
         id: "data",
         layout: "text-only",
-        label: "16 / DATA CONSIDERATIONS",
+        label: "15 / DATA CONSIDERATIONS",
         title: "Learning data needs careful defaults.",
         paragraphs: [
           "Profiles, assessment responses, goals, and recommendation history can reveal sensitive education and career information. The product should minimize collection, explain how data informs recommendations, provide correction and deletion paths, and avoid treating inferred skill levels as verified credentials.",
@@ -589,21 +524,182 @@ export const caseStudies: readonly CaseStudy[] = [
       {
         id: "engineering",
         layout: "text-only",
-        label: "17 / ENGINEERING REALITY",
+        label: "16 / ENGINEERING REALITY",
         title: "Name what is built, proposed, and inferred.",
         paragraphs: [
-          "The implementation evidence supports a React client, FastAPI REST backend, LLM-based learning paths, skill tracking, 12 beta users, and the reported sub-800 ms recommendation response. Hybrid RAG, Vector Search, Vertex AI Gemini, and the cloud topology are presented architecture choices unless independently verified.",
-          "The GitHub reference is provided for the project source: https://github.com/hdp01/NeuralixAi",
+          "The current portfolio notes describe a React client, a FastAPI REST backend, LLM-based learning paths, and skill tracking. This portfolio repository does not contain the project implementation, usage evidence, or a verified source-repository link.",
         ],
       },
     ],
     limitations: [
       "The cloud architecture is presented for communication; managed Vector Search, Vertex AI Gemini, and production deployment details are not claimed as verified here.",
-      "The reported 12 beta users and sub-800 ms recommendation response are observed context, not a guarantee, benchmark protocol, or SLA.",
+      "Usage, recommendation latency, deployment, and production readiness are not documented in the available repository.",
       "Skill levels and parser output are inferred signals and should not be used as credentials, hiring decisions, or definitive career predictions.",
-      "Security, privacy, availability, monitoring, and deployment controls are not asserted beyond the verified implementation details.",
+      "Security, privacy, availability, monitoring, and deployment controls are not independently verified in this repository.",
     ],
   },
+  {
+    slug: "shetisakha",
+    title: "ShetiSakha",
+    eyebrow: "TEAM PROJECT / ANDROID / AGRICULTURAL ROBOTICS",
+    summary:
+      "A team final-year Android app repository for Bluetooth agribot controls, grid/freehand path entry, and saved paths. The Arduino firmware and physical robot operation are not included in the linked source.",
+    category: "Team Project / Android Application",
+    status: "TEAM PROJECT / APP SOURCE PRESENT / HARDWARE OPERATION UNVERIFIED",
+    limitationsHeading: "Evidence limits",
+    githubUrl: "https://github.com/atharvaHJoshi/ShetiSakha-Final_Year_Project_GPN",
+    technologies: [
+      "Java",
+      "Android SDK",
+      "Android Views and XML",
+      "Bluetooth SPP / HC-05",
+      "SQLite",
+      "Gradle",
+      "OpenWeatherMap API",
+    ],
+    sections: [
+      {
+        id: "overview",
+        layout: "text-only",
+        label: "01 / TEAM PROJECT",
+        title: "An Android control app for an agricultural robot concept.",
+        paragraphs: [
+          "The repository contains a Java Android application with manual remote controls, path-entry screens, Bluetooth connection code, and local path storage. Its README describes an Arduino-based agribot, but the Arduino firmware is not included in this repository.",
+          "The accompanying 2023–24 project thesis lists Mohit Nagarkar among five team members. It does not assign individual implementation areas, so this case study does not attribute the complete app or robot to one person.",
+        ],
+      },
+      {
+        id: "controls",
+        layout: "text-only",
+        label: "02 / BLUETOOTH CONTROL",
+        title: "App source connects to a paired HC-05 over Bluetooth SPP.",
+        paragraphs: [
+          "The app includes a Bluetooth controller that discovers paired devices and opens an RFCOMM/SPP connection. The manual-control screen sends command bytes from directional and task controls.",
+          "This confirms app-side connection and command code only. Without the robot firmware and a connected device, the physical effect of those commands is unverified.",
+        ],
+        bullets: [
+          "Paired-device discovery and connection code",
+          "Manual control interface and command writes",
+          "No Arduino firmware or hardware test evidence in the repository",
+        ],
+      },
+      {
+        id: "paths",
+        layout: "text-only",
+        label: "03 / PATH ENTRY AND STORAGE",
+        title: "Grid and freehand path input have dedicated Android views.",
+        paragraphs: [
+          "The app source includes a grid-pattern view and a freehand drawing view, plus SQLite helpers for saving path direction and runtime records. These are app-side path entry and storage capabilities; autonomous robot execution has not been tested.",
+        ],
+        bullets: [
+          "Grid-based path entry UI",
+          "Freehand path drawing view",
+          "SQLite path record helper",
+        ],
+      },
+      {
+        id: "supporting",
+        layout: "text-only",
+        label: "04 / SUPPORTING FEATURES",
+        title: "The app also includes weather and settings screens.",
+        paragraphs: [
+          "The source includes an OpenWeatherMap request path and Android settings screens. No soil sensor implementation appears in the checked application source.",
+        ],
+      },
+    ],
+    limitations: [
+      "The thesis names Mohit Nagarkar as one of five team members; it does not specify his individual coding or hardware responsibilities. Confirm those details before adding personal contribution claims.",
+      "The Arduino firmware and physical robot are not included, so seeding, sprinkling, ploughing, path-following, and sensor behavior cannot be verified from this repository.",
+      "A template ExampleUnitTest exists, but no project-specific automated behavior tests or test results were found.",
+      "No live demo URL is listed; the Android project is linked to its source repository.",
+    ],
+  },
+  {
+    slug: "intelli-climate",
+    title: "Intelli Climate",
+    eyebrow: "IOT / ENVIRONMENTAL MONITORING / AI REPORTS",
+    summary:
+      "Repository source connects ESP8266 sensor readings to Firebase and a React dashboard, with a Gemini-generated report path. The hosted page responds, but hardware telemetry and end-to-end operation are not verified.",
+    category: "IoT / Web Application",
+    status: "IMPLEMENTATION SOURCE PRESENT / LIVE DATA FLOW UNVERIFIED",
+    limitationsHeading: "Evidence limits",
+    liveUrl: "https://intelliclimate-81392.web.app/",
+    githubUrl: "https://github.com/Mohit-Nagarkar/intelli-climate",
+    technologies: [
+      "ESP8266 / NodeMCU",
+      "DHT11",
+      "Analog Soil Moisture Sensor",
+      "Firebase Realtime Database",
+      "React",
+      "Chart.js",
+      "Express",
+      "Google Gemini API",
+      "jsPDF",
+    ],
+    sections: [
+      {
+        id: "overview",
+        layout: "text-only",
+        label: "01 / IMPLEMENTATION",
+        title: "Source code covers the sensor, data, dashboard, and report path.",
+        paragraphs: [
+          "The repository includes an ESP8266 sketch, Firebase client setup and data hook, React dashboard components, and an Express endpoint for Gemini-generated environmental reports. Source code supports these components; it does not prove a complete deployed workflow.",
+          "The README and project-analysis notes disagree about whether Firebase is used. The checked firmware and frontend source both include Firebase integration, so this case study follows the code.",
+          "The repository history attributes two commits to Mohit-Nagarkar, including report-error handling and deployed-frontend CORS changes. This is evidence for those changes, not proof of sole authorship of the whole project.",
+        ],
+      },
+      {
+        id: "sensor-flow",
+        layout: "text-only",
+        label: "02 / SENSOR DATA FLOW",
+        title: "The firmware reads DHT11 and analog soil-moisture values.",
+        paragraphs: [
+          "The NodeMCU sketch reads temperature and humidity from a DHT11 and an analog value from A0, maps the soil reading to a percentage, and writes the latest reading and a history entry to Firebase Realtime Database. The loop includes a five-second delay.",
+          "The Firebase frontend hook subscribes to stored data for the dashboard. The source includes this data path, but the physical board, calibration, Firebase rules, and live telemetry were not exercised in this review.",
+        ],
+        bullets: [
+          "DHT11 temperature and humidity inputs",
+          "Analog soil-moisture input on A0",
+          "Firebase latest and history paths",
+          "No sensor calibration or field-performance evidence in the repository",
+        ],
+      },
+      {
+        id: "dashboard",
+        layout: "text-only",
+        label: "03 / DASHBOARD AND REPORT",
+        title: "Charts, a heuristic health score, Gemini reports, and PDF export.",
+        paragraphs: [
+          "The React client displays current readings and chart history, calculates a rule-based health score, and sends summary statistics to the Express /generate-report endpoint. The backend calls Gemini and returns report text; the frontend includes PDF report export.",
+          "The health score is application logic, not a validated agricultural or plant-health measure. Report quality, AI behavior, and PDF output have not been independently evaluated here.",
+        ],
+        bullets: [
+          "React dashboard with Chart.js",
+          "Firebase-backed sensor data hook",
+          "Express endpoint using the Google Gemini API",
+          "PDF report generation with jsPDF",
+        ],
+      },
+      {
+        id: "deployment",
+        layout: "text-only",
+        label: "04 / DEPLOYMENT AND CONTRIBUTION",
+        title: "The hosted app shell is reachable; live behavior remains unverified.",
+        paragraphs: [
+          "The Firebase Hosting URL returned HTTP 200 with the Intelli Climate page title. This confirms the hosted app shell only; it does not confirm that Firebase telemetry, the backend, or Gemini reports work end to end.",
+          "Credential handling and Firebase security configuration require review before deployment. No credential values are reproduced in this case study.",
+        ],
+      },
+    ],
+    limitations: [
+      "No automated test script or project test suite is present in the current package manifests.",
+      "The live page shell is reachable, but connected-device telemetry, Firebase access rules, backend deployment, and AI report execution were not verified.",
+      "The repository includes tracked environment/configuration files that require a credential review. Rotate any exposed secrets and remove them from public history before treating the repository as safe.",
+      "The repository history documents two commits attributed to Mohit-Nagarkar, but does not establish sole authorship or the scope of earlier implementation work.",
+      "No measured sensor accuracy, agricultural outcomes, or system reliability results are documented.",
+    ],
+  },
+
 ];
 
 export function getCaseStudy(slug: string): CaseStudy | undefined {

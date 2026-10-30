@@ -1,3 +1,5 @@
+import { projects } from "./projects";
+
 export type ProofPoint = {
   id: string;
   value: string;
@@ -14,32 +16,11 @@ export type Certification = {
 
 export const proofPoints: ProofPoint[] = [
   {
-    id: "carbon-reduction",
-    value: "Up to 25%",
-    label: "reported reduction",
-    context: "Green Model Advisor · per-task carbon output / inference energy",
-    accessibleLabel: "Up to 25 percent, reported reduction in per-task carbon output and inference energy.",
-  },
-  {
-    id: "beta-users",
-    value: "12",
-    label: "beta users served",
-    context: "NeuralixAI",
-    accessibleLabel: "12 beta users served by NeuralixAI.",
-  },
-  {
-    id: "response-time",
-    value: "<800 ms",
-    label: "recommendation response time",
-    context: "NeuralixAI",
-    accessibleLabel: "Less than 800 milliseconds recommendation response time for NeuralixAI.",
-  },
-  {
     id: "project-count",
-    value: "5",
-    label: "cross-domain projects",
-    context: "Portfolio",
-    accessibleLabel: "5 cross-domain projects currently showcased in the portfolio.",
+    value: String(projects.length),
+    label: "projects in this portfolio",
+    context: "Project records shown across software, AI, IoT, and robotics.",
+    accessibleLabel: `${projects.length} project records currently shown in this portfolio.`,
   },
 ];
 

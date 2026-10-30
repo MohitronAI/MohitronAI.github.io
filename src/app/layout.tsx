@@ -1,41 +1,45 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { SmoothScroll } from "@/components/layout/smooth-scroll";
+import { Navigation } from "@/components/navigation/navigation";
+import { CommandPalette } from "@/components/navigation/command-palette";
 import { contact } from "@/data/contact";
 import { absoluteUrl, siteUrl } from "@/lib/site-config";
 import "./globals.css";
 
 const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const siteTitle = "Mohit Nagarkar — Software & AI Developer";
+const siteDescription =
+  "Portfolio of Mohit Nagarkar, a software and AI developer building full-stack applications, AI-powered platforms, IoT systems, and real-world engineering projects.";
 
 export const metadata: Metadata = {
   metadataBase: siteUrl ? new URL(siteUrl) : undefined,
-  title: "Mohit Nagarkar — Software & AI Developer",
-  description: "Portfolio of Mohit Nagarkar, a software and AI developer building full-stack applications, AI-powered platforms, IoT systems, and real-world engineering projects.",
+  title: siteTitle,
+  description: siteDescription,
   applicationName: "Mohit Nagarkar Portfolio",
   authors: [{ name: contact.name }],
   creator: contact.name,
   publisher: contact.name,
   keywords: ["Software Development", "AI", "Generative AI", "Full-Stack Development", "React", "TypeScript", "Python", "FastAPI", "Node.js", "Machine Learning", "IoT", "Robotics"],
-  alternates: { canonical: "/" },
+  alternates: { canonical: absoluteUrl("/") },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Mohit Nagarkar — Software & AI Developer",
-    description: "Portfolio of Mohit Nagarkar, a software and AI developer building full-stack applications, AI-powered platforms, IoT systems, and real-world engineering projects.",
+    title: siteTitle,
+    description: siteDescription,
     type: "website",
     siteName: "Mohit Nagarkar Portfolio",
     url: absoluteUrl("/"),
   },
   twitter: {
     card: "summary",
-    title: "Mohit Nagarkar — Software & AI Developer",
-    description: "Portfolio of Mohit Nagarkar, a software and AI developer building full-stack applications, AI-powered platforms, IoT systems, and real-world engineering projects.",
+    title: siteTitle,
+    description: siteDescription,
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0d0f0e",
-  colorScheme: "dark",
+  themeColor: "#f4f0e6",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -49,10 +53,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   };
 
   return (
-    <html lang="en">
-      <body className={`${geist.variable} ${geistMono.variable}`}>
-        <SmoothScroll />
+    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
+      <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c") }} />
+        <Navigation />
+        <CommandPalette />
         {children}
       </body>
     </html>

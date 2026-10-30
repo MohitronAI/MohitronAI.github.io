@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: WritingPageProps): Promise<Me
   return {
     title,
     description: article.seoDescription,
-    alternates: { canonical: `/writing/${article.slug}` },
-    openGraph: { title, description: article.seoDescription, type: "article", siteName: "Mohit Nagarkar Portfolio", url: absoluteUrl(`/writing/${article.slug}`) },
+    alternates: { canonical: absoluteUrl(`/writing/${article.slug}/`) },
+    openGraph: { title, description: article.seoDescription, type: "article", siteName: "Mohit Nagarkar Portfolio", url: absoluteUrl(`/writing/${article.slug}/`) },
     twitter: { card: "summary", title, description: article.seoDescription },
   };
 }
@@ -40,8 +40,8 @@ export default async function WritingPage({ params }: WritingPageProps) {
   return (
     <main id="main-content" className="writing-page">
       <header className="case-study-header site-container">
-        <Link className="brand" href="/" aria-label="Mohit home">MOHIT<span className="brand-dot">.</span></Link>
         <Link className="case-study-back" href="/#writing"><span aria-hidden="true">←</span> Back to Writing</Link>
+        <span className="detail-page-label">WRITING / {article.publication}</span>
       </header>
       <article className="article-reading site-container">
         <header className="article-header">

@@ -108,18 +108,18 @@ export function CaseStudyDiagram({ kind, title, description }: DiagramProps) {
     return (
       <DiagramFrame id="carbon-energy" title={title} description={description}>
         <path className="diagram-grid" d="M0 72H720M0 144H720M0 216H720M0 288H720M72 0V360M144 0V360M216 0V360M288 0V360M360 0V360M432 0V360M504 0V360M576 0V360M648 0V360" />
-        <text className="diagram-overline" x="32" y="34">GREEN MODEL ADVISOR / OBSERVATION PIPELINE</text>
+        <text className="diagram-overline" x="32" y="34">GREEN MODEL ADVISOR / CODECARBON OR FALLBACK</text>
         <Node x={24} y={112} title="REQUEST" detail="route + context" accent width={132} />
         <Node x={188} y={70} title="INFERENCE" detail="completion event" width={132} />
-        <Node x={188} y={194} title="ENERGY" detail="usage observation" accent width={132} />
-        <Node x={352} y={132} title="CONTEXT" detail="carbon intensity" accent width={142} />
-        <Node x={526} y={132} title="SIGNAL" detail="source + uncertainty" width={158} />
+        <Node x={188} y={194} title="CODECARBON" detail="optional process tracking" accent width={132} />
+        <Node x={352} y={132} title="FALLBACK" detail="model-based estimate" accent width={142} />
+        <Node x={526} y={132} title="ESTIMATE" detail="energy + carbon output" width={158} />
         <Arrow x1={156} y1={150} x2={188} y2={108} />
         <Arrow x1={156} y1={150} x2={188} y2={232} />
         <Arrow x1={320} y1={108} x2={352} y2={166} />
         <Arrow x1={320} y1={232} x2={352} y2={178} />
         <Arrow x1={494} y1={170} x2={526} y2={170} />
-        <text className="diagram-note" x="24" y="314">CAPTURE → JOIN → ATTRIBUTE → DISCLOSE</text>
+        <text className="diagram-note" x="24" y="314">TRACK OR ESTIMATE / METHOD IS RECORDED</text>
       </DiagramFrame>
     );
   }
@@ -147,7 +147,7 @@ export function CaseStudyDiagram({ kind, title, description }: DiagramProps) {
     return (
       <DiagramFrame id="green-architecture" title={title} description={description}>
         <path className="diagram-grid" d="M0 72H720M0 144H720M0 216H720M0 288H720M72 0V360M144 0V360M216 0V360M288 0V360M360 0V360M432 0V360M504 0V360M576 0V360M648 0V360" />
-        <text className="diagram-overline" x="32" y="34">GREEN MODEL ADVISOR / CONCEPTUAL BOUNDARIES</text>
+        <text className="diagram-overline" x="32" y="34">GREEN MODEL ADVISOR / SOURCE ARCHITECTURE</text>
         <rect className="diagram-boundary" x="22" y="60" width="196" height="224" rx="1" />
         <rect className="diagram-boundary diagram-boundary--presented" x="240" y="60" width="458" height="224" rx="1" />
         <text className="diagram-side-label" x="38" y="84">INTERFACE</text>
@@ -163,8 +163,8 @@ export function CaseStudyDiagram({ kind, title, description }: DiagramProps) {
         <Arrow x1={394} y1={150} x2={408} y2={150} />
         <Arrow x1={546} y1={150} x2={560} y2={150} />
         <path className="diagram-connector" d="M325 188V214M477 188V214M629 188V214M334 252H202V238" />
-        <text className="diagram-note" x="38" y="268">REACT / PRESENTED UI</text>
-        <text className="diagram-note" x="256" y="268">FASTAPI / CONCEPTUAL SERVICE MAP</text>
+        <text className="diagram-note" x="38" y="268">REACT CLIENT SOURCE</text>
+        <text className="diagram-note" x="256" y="268">FASTAPI / SOURCE SERVICE MAP</text>
       </DiagramFrame>
     );
   }
@@ -204,7 +204,7 @@ export function CaseStudyDiagram({ kind, title, description }: DiagramProps) {
         <Arrow x1={182} y1={116} x2={198} y2={116} />
         <Arrow x1={346} y1={116} x2={362} y2={116} />
         <Arrow x1={510} y1={116} x2={526} y2={116} />
-        <Node x={198} y={220} title="SERVICES" detail="PDFKit + Brevo" />
+        <Node x={198} y={220} title="SERVICES" detail="PDF + email" />
         <Arrow x1={272} y1={154} x2={272} y2={220} />
         <text className="diagram-note" x="34" y="326">EXPLICIT BOUNDARIES / ONE REQUEST PATH</text>
       </DiagramFrame>
@@ -239,7 +239,7 @@ export function CaseStudyDiagram({ kind, title, description }: DiagramProps) {
         <path className="diagram-grid" d="M0 72H720M0 144H720M0 216H720M0 288H720M72 0V360M144 0V360M216 0V360M288 0V360M360 0V360M432 0V360M504 0V360M576 0V360M648 0V360" />
         <text className="diagram-overline" x="32" y="34">NEURALIXAI / LEARNER REQUEST PATH</text>
         <Node x={18} y={124} title="PROFILE" detail="goal + constraints" accent />
-        <Node x={152} y={124} title="ASSESS" detail="4–7 domains" />
+        <Node x={152} y={124} title="ASSESS" detail="skill domains" />
         <Node x={286} y={124} title="PARSE" detail="structured skills" accent />
         <Node x={420} y={124} title="RETRIEVE" detail="hybrid context" />
         <Node x={554} y={124} title="RECOMMEND" detail="ranked path" accent />

@@ -1,16 +1,14 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { contact } from "@/data/contact";
 
 const links = [
-  { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
-  { label: "Stack", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Writing", href: "/#writing" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Navigation() {
@@ -27,7 +25,7 @@ export function Navigation() {
 
   useEffect(() => {
     const sections = links
-      .map((link) => document.querySelector(link.href))
+      .map((link) => document.querySelector(link.href.slice(1)))
       .filter((section): section is HTMLElement => section instanceof HTMLElement);
     if (sections.length === 0) return;
 
@@ -71,30 +69,38 @@ export function Navigation() {
     <>
       <a className="skip-link" href="#main-content">Skip to main content</a>
       <header className={`site-header ${scrolled ? "site-header--scrolled" : ""}`}>
-      <nav className="nav-shell site-container" aria-label="Primary navigation">
-        <Link className="brand" href="/" onClick={closeMenu} aria-label="Mohit home">
-          MOHIT<span className="brand-dot">.</span>
-        </Link>
-        <div className="desktop-links">
-          {links.map((link) => <a href={link.href} key={link.href} aria-current={activeSection === link.href ? "location" : undefined}>{link.label}</a>)}
-          <a className="nav-cta" href={contact.emailHref} target="_blank" rel="noopener noreferrer">Let&apos;s Talk <span aria-hidden="true">↗</span></a>
-        </div>
-        <button ref={menuToggleRef} className={`menu-toggle ${open ? "is-open" : ""}`} onClick={() => setOpen(!open)} aria-label={open ? "Close navigation menu" : "Open navigation menu"} aria-expanded={open} aria-controls="mobile-menu">
-          <span>{open ? "Close" : "Menu"}</span><i aria-hidden="true" />
-        </button>
-      </nav>
-      <AnimatePresence>
-        {open && (
-          <motion.nav id="mobile-menu" className="mobile-menu" aria-label="Mobile navigation" initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} transition={{ duration: 0.22 }}>
-            {links.map((link, index) => (
-              <motion.a href={link.href} key={link.href} onClick={closeMenu} aria-current={activeSection === link.href ? "location" : undefined} initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.04 }}>
-                <span>0{index + 1}</span>{link.label}
-              </motion.a>
+        <nav className="nav-shell site-container" aria-label="Primary navigation">
+          <Link className="brand" href="/" onClick={closeMenu} aria-label="Mohit home">
+            MN<span className="brand-dot">.</span>
+          </Link>
+          <Link className="nav-home" href="/" onClick={closeMenu}>Home</Link>
+          <div className="desktop-links">
+            {links.map((link) => (
+              <Link href={link.href} key={link.href} onClick={closeMenu} aria-current={activeSection === link.href.slice(1) ? "location" : undefined}>
+                {link.label}
+              </Link>
             ))}
-            <a className="mobile-cta" href={contact.emailHref} target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Let&apos;s Talk <span aria-hidden="true">↗</span></a>
-          </motion.nav>
+          </div>
+          <div className="nav-actions">
+            <button className="palette-trigger" type="button" onClick={() => window.dispatchEvent(new Event("portfolio:open-palette"))} aria-label="Open navigation palette">
+              <span>CTRL / ⌘ K</span>
+            </button>
+            <a className="nav-cta" href={contact.emailHref} target="_blank" rel="noopener noreferrer">Let&apos;s talk <span aria-hidden="true">↗</span></a>
+          </div>
+          <button ref={menuToggleRef} className={`menu-toggle ${open ? "is-open" : ""}`} onClick={() => setOpen(!open)} aria-label={open ? "Close navigation menu" : "Open navigation menu"} aria-expanded={open} aria-controls="mobile-menu">
+            <span>{open ? "Close" : "Menu"}</span><i aria-hidden="true" />
+          </button>
+        </nav>
+        {open && (
+          <nav id="mobile-menu" className="mobile-menu" aria-label="Mobile navigation">
+            <Link href="/" onClick={closeMenu}>Home</Link>
+            {links.map((link) => (
+              <Link href={link.href} key={link.href} onClick={closeMenu} aria-current={activeSection === link.href.slice(1) ? "location" : undefined}>{link.label}</Link>
+            ))}
+            <button type="button" onClick={() => { closeMenu(); window.dispatchEvent(new Event("portfolio:open-palette")); }}>Open command palette <kbd>CTRL / ⌘ K</kbd></button>
+            <a className="mobile-cta" href={contact.emailHref} target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Let&apos;s talk <span aria-hidden="true">↗</span></a>
+          </nav>
         )}
-      </AnimatePresence>
       </header>
     </>
   );

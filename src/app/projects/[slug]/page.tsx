@@ -30,13 +30,13 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   return {
     title,
     description,
-    alternates: { canonical: `/projects/${caseStudy.slug}` },
+    alternates: { canonical: absoluteUrl(`/projects/${caseStudy.slug}/`) },
     openGraph: {
       title,
       description,
       type: "article",
       siteName: "Mohit Nagarkar Portfolio",
-      url: absoluteUrl(`/projects/${caseStudy.slug}`),
+      url: absoluteUrl(`/projects/${caseStudy.slug}/`),
     },
     twitter: {
       card: "summary",

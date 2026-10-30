@@ -26,8 +26,6 @@ export const experience: Experience[] = [
     company: "RunOnWeb",
     role: "Co-Founder",
     period: "2026–Present",
-    description:
-      "Co-founded an active digital solutions and freelancing venture helping businesses adopt technology and strengthen their digital presence. Focused on building websites, applications, and custom software tailored to client requirements.",
   },
 ];
 

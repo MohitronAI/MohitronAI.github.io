@@ -36,4 +36,16 @@ export const skillCategories: SkillCategory[] = [
     title: "DevOps & Tools",
     skills: ["AWS", "Docker", "Kubernetes", "Terraform", "Linux", "Vercel", "Render", "Git/GitHub", "Postman", "Figma"],
   },
+  {
+    id: "ai-systems",
+    number: "06",
+    title: "AI Systems",
+    skills: ["LLMs", "AI Model Orchestration", "AI-based Advisory", "Energy Benchmarking"],
+  },
+  {
+    id: "embedded-robotics",
+    number: "07",
+    title: "Embedded & Robotics",
+    skills: ["Embedded Systems", "NodeMCU / ESP8266", "DHT11", "Soil Moisture Sensor", "Bluetooth (HC-05)", "Motor Control"],
+  },
 ];
